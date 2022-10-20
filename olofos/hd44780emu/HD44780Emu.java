@@ -222,7 +222,7 @@ public class HD44780Emu {
 	}
 
 	public int readByte() {
-		if ((functionFlags & LCD_CMD_FUNCTION_DL) == 0) && (lowerBitsW >= 0)) {
+		if (((functionFlags & LCD_CMD_FUNCTION_DL) == 0) && (lowerBitsW >= 0)) {
 			int data = 0;
 			data = (lowerBitsW << 4) & 0xF0;
 			lowerBitsW = -1;
@@ -253,7 +253,7 @@ public class HD44780Emu {
 	}
 
 	public int readAddress() {
-		if ((functionFlags & LCD_CMD_FUNCTION_DL) == 0) && (lowerBitsW >= 0)) {
+		if (((functionFlags & LCD_CMD_FUNCTION_DL) == 0) && (lowerBitsW >= 0)) {
 			int data = 0;
 			data = (lowerBitsW << 4) & 0xF0;
 			lowerBitsW = -1;
