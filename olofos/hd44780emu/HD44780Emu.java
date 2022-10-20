@@ -17,32 +17,32 @@ public class HD44780Emu {
 		CGRAM
 	};
 
-	static final int LCD_CMD_CLEAR = 0b00000001;
-	static final int LCD_CMD_HOME = 0b00000010;
+	static public final int LCD_CMD_CLEAR = 0b00000001;
+	static public final int LCD_CMD_HOME = 0b00000010;
 
-	static final int LCD_CMD_ENTRY_MODE = 0b00000100;
-	static final int LCD_CMD_ENTRY_MODE_INCREMENT = 0b00000010;
-	static final int LCD_CMD_ENTRY_MODE_DECREMENT = 0b00000000;
-	static final int LCD_CMD_ENTRY_MODE_SHIFT = 0b00000001;
+	static public final int LCD_CMD_ENTRY_MODE = 0b00000100;
+	static public final int LCD_CMD_ENTRY_MODE_INCREMENT = 0b00000010;
+	static public final int LCD_CMD_ENTRY_MODE_DECREMENT = 0b00000000;
+	static public final int LCD_CMD_ENTRY_MODE_SHIFT = 0b00000001;
 
-	static final int LCD_CMD_DISPLAY = 0b00001000;
-	static final int LCD_CMD_DISPLAY_ON = 0b00000100;
-	static final int LCD_CMD_DISPLAY_CURSOR = 0b00000010;
-	static final int LCD_CMD_DISPLAY_CURSOR_BLINK = 0b00000001;
+	static public final int LCD_CMD_DISPLAY = 0b00001000;
+	static public final int LCD_CMD_DISPLAY_ON = 0b00000100;
+	static public final int LCD_CMD_DISPLAY_CURSOR = 0b00000010;
+	static public final int LCD_CMD_DISPLAY_CURSOR_BLINK = 0b00000001;
 
-	static final int LCD_CMD_SHIFT = 0b00010000;
-	static final int LCD_CMD_SHIFT_CURSOR = 0b00000000;
-	static final int LCD_CMD_SHIFT_DISPLAY = 0b00001000;
-	static final int LCD_CMD_SHIFT_LEFT = 0b00000000;
-	static final int LCD_CMD_SHIFT_RIGHT = 0b00000100;
+	static public final int LCD_CMD_SHIFT = 0b00010000;
+	static public final int LCD_CMD_SHIFT_CURSOR = 0b00000000;
+	static public final int LCD_CMD_SHIFT_DISPLAY = 0b00001000;
+	static public final int LCD_CMD_SHIFT_LEFT = 0b00000000;
+	static public final int LCD_CMD_SHIFT_RIGHT = 0b00000100;
 
-	static final int LCD_CMD_FUNCTION = 0b00100000;
-	static final int LCD_CMD_FUNCTION_DL = 0b00010000;
-	static final int LCD_CMD_FUNCTION_LCD_1LINE = 0b00000000;
-	static final int LCD_CMD_FUNCTION_LCD_2LINE = 0b00001000;
+	static public final int LCD_CMD_FUNCTION = 0b00100000;
+	static public final int LCD_CMD_FUNCTION_DL = 0b00010000;
+	static public final int LCD_CMD_FUNCTION_LCD_1LINE = 0b00000000;
+	static public final int LCD_CMD_FUNCTION_LCD_2LINE = 0b00001000;
 
-	static final int LCD_CMD_SET_CGRAM_ADDR = 0b01000000;
-	static final int LCD_CMD_SET_DDRAM_ADDR = 0b10000000;
+	static public final int LCD_CMD_SET_CGRAM_ADDR = 0b01000000;
+	static public final int LCD_CMD_SET_DDRAM_ADDR = 0b10000000;
 
 	static final int CHAR_WIDTH_PX = 5;
 	static final int CHAR_HEIGHT_PX = 8;
