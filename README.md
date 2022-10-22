@@ -6,8 +6,104 @@ HD44780Emu supports most commands of the commands listed in the [HD44780 datashe
 
 HD44780Emu does support reading and writing in both 8-bit and 4-bit modes.
 
+## API
 
-## Usage
+### Constructor
+
+```
+HD44780Emu emu = new HD44780Emu(columns, rows, rom);
+```
+
+* `columns` number of columns (up to 40)
+* `rows` number of rows (1, 2 or 4)
+* `rom` selected font rom. 
+
+The two supported font roms are `HD44780Emu.Rom.A00`, which includes Japanese glyphs, and `HD44780Emu.Rom.A02`, which includes European glyphs.
+
+The number of pixels, `columns` &times; `rows`, should not exceed 40.Common values for `columns` and `rows` are 40 &times; 2, 20 &times; 4, 20 &times; 2, 16 &times; 4, 16 &times; 2, 16 &times; 1, and 8 &times; 1.
+
+### `sendCommand(int command)`
+
+Send a command to the LCD controller. 
+
+
+### `writeByte(int data)`
+
+Write a byte to the DDRAM or CGRAM memory of the LCD.
+
+### `int readAddress()`
+
+Read the current DDRAM or CGRAM address. Note that the emulator always returns 0 for the busy flag.
+
+### `int readByte()`
+
+Read a byte from the DDRAM or CGRAM memory of the LCD.
+
+### `int[][] getPixels()`
+
+Returns a two-dimensional array of size `int[width][rows]` representing the pixels of the display. The possible pixel values are
+
+* `-1` no pixel. Used for the padding between each character.
+* `0` pixel off
+* `+1` pixel on
+
+### `int getWidth()`
+
+Returns the width of the display in pixels.
+
+### `int getHeight()`
+
+Returns the height of the display in pixels.
+
+### `int getColumns()`
+
+Returns the number of columns of the display (as set in the constructor).
+
+###	`int getRows()`
+
+Returns the number of rows of the display (as set in the constructor).
+
+### Useful constants
+
+The `HD44780Emu` class defines some useful constants:
+
+* Pixel colors:
+   ```Java
+   HD44780Emu.COLOR_BG = -1;
+   HD44780Emu.COLOR_OFF = 0;
+   HD44780Emu.COLOR_ON = +1;
+   ```
+* Commands:
+   ```Java
+    HD44780Emu.LCD_CMD_CLEAR = 0b00000001;
+    HD44780Emu.LCD_CMD_HOME = 0b00000010;
+
+	HD44780Emu.LCD_CMD_ENTRY_MODE = 0b00000100;
+	HD44780Emu.LCD_CMD_ENTRY_MODE_INCREMENT = 0b00000010;
+	HD44780Emu.LCD_CMD_ENTRY_MODE_DECREMENT = 0b00000000;
+	HD44780Emu.LCD_CMD_ENTRY_MODE_SHIFT = 0b00000001;
+
+	HD44780Emu.LCD_CMD_DISPLAY = 0b00001000;
+	HD44780Emu.LCD_CMD_DISPLAY_ON = 0b00000100;
+	HD44780Emu.LCD_CMD_DISPLAY_CURSOR = 0b00000010;
+	HD44780Emu.LCD_CMD_DISPLAY_CURSOR_BLINK = 0b00000001;
+
+	HD44780Emu.LCD_CMD_SHIFT = 0b00010000;
+	HD44780Emu.LCD_CMD_SHIFT_CURSOR = 0b00000000;
+	HD44780Emu.LCD_CMD_SHIFT_DISPLAY = 0b00001000;
+	HD44780Emu.LCD_CMD_SHIFT_LEFT = 0b00000000;
+	HD44780Emu.LCD_CMD_SHIFT_RIGHT = 0b00000100;
+
+	HD44780Emu.LCD_CMD_FUNCTION = 0b00100000;
+	HD44780Emu.LCD_CMD_FUNCTION_DL = 0b00010000;
+	HD44780Emu.LCD_CMD_FUNCTION_LCD_1LINE = 0b00000000;
+	HD44780Emu.LCD_CMD_FUNCTION_LCD_2LINE = 0b00001000;
+
+	HD44780Emu.LCD_CMD_SET_CGRAM_ADDR = 0b01000000;
+	HD44780Emu.LCD_CMD_SET_DDRAM_ADDR = 0b10000000;
+    ```
+
+## Example
 
 ```Java
 import olofos.hd44780;
