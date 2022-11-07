@@ -106,7 +106,7 @@ The `HD44780Emu` class defines some useful constants:
 ## Example
 
 ```Java
-import olofos.hd44780;
+import olofos.hd44780.HD44780Emu;
 public class LcdTest {
 	public static void printLCD(HD44780Emu emu) {
 		int[][] pixels = emu.getPixels();
