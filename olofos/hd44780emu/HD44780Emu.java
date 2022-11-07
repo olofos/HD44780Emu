@@ -92,7 +92,7 @@ public class HD44780Emu {
 	private int upperBitsR;
 	private int lowerBitsW;
 
-	HD44780Emu(int cols, int rows, Rom rom) {
+	public HD44780Emu(int cols, int rows, Rom rom) {
 		if (cols < DISPLAY_MIN_COLS) {
 			cols = DISPLAY_MIN_COLS;
 		} else if (cols > DISPLAY_MAX_COLS) {
